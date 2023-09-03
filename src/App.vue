@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import PasswordGenerateTest from './components/PasswordGenerateTest.vue';
+import NavigationDrawer from '@/components/drawers/NavigationDrawer.vue';
 </script>
 
 <template>
@@ -7,14 +7,10 @@ import PasswordGenerateTest from './components/PasswordGenerateTest.vue';
     <v-layout class="rounded rounded-md">
     <v-app-bar title="Application bar"></v-app-bar>
 
-    <v-navigation-drawer>
-      <v-list>
-        <v-list-item title="Navigation drawer"></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <NavigationDrawer />
 
     <v-main>
-      <PasswordGenerateTest />
+      <router-view />
     </v-main>
   </v-layout>
   </v-app>
