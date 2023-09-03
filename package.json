@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^10.4.1",
     "node-base91": "^0.3.4",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",

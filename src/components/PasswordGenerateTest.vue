@@ -4,9 +4,9 @@ import { useBase91Hash } from '@/hooks/useBase91Hash';
 
 const passwordSeed = ref("");
 const passwordHash = ref("");
-const { hashing } = useBase91Hash();
+const { hashFn } = useBase91Hash();
 const passwordHashing = async () => {
-  passwordHash.value = await hashing(passwordSeed.value);
+  passwordHash.value = await hashFn(passwordSeed.value);
 };
 
 </script>
