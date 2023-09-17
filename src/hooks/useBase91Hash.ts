@@ -1,20 +1,20 @@
 import base91 from "node-base91";
-import { Buffer } from 'buffer';
-import { computed, ref } from "vue";
+import { Buffer } from "buffer";
+import { ref } from "vue";
 import { asyncComputed } from "@vueuse/core";
 
 export const useBase91Hash = () => {
-  const masterPasswordHash = ref('');
-  const seedHash = ref('');
+  const masterPasswordHash = ref("");
+  const seedHash = ref("");
 
   const str2buf = (str: string) => {
-    const tx = new TextEncoder()
+    const tx = new TextEncoder();
     return tx.encode(str).buffer;
-  }
+  };
 
   const hashFn = async (seed: string) => {
     const hashvalue = await crypto.subtle.digest("SHA-256", str2buf(seed));
-    return base91.encode(Buffer.from(hashvalue), 'utf-8').toString();
+    return base91.encode(Buffer.from(hashvalue), "utf-8").toString();
   };
 
   const setMasterPasswordAsync = async (masterPassword: string) => {
@@ -36,4 +36,4 @@ export const useBase91Hash = () => {
     setSeedAsync,
     computedHash,
   };
-}
+};

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import NavigationDrawer from '@/components/drawers/NavigationDrawer.vue';
+import NavigationDrawer from "@/components/drawers/NavigationDrawer.vue";
 </script>
 
 <template>
   <v-app>
     <v-layout class="rounded rounded-md">
-    <v-app-bar title="Application bar"></v-app-bar>
+      <v-app-bar title="Application bar" />
 
-    <NavigationDrawer />
+      <NavigationDrawer />
 
-    <v-main>
-      <router-view />
-    </v-main>
-  </v-layout>
+      <v-main>
+        <router-view />
+      </v-main>
+    </v-layout>
   </v-app>
 </template>
 
