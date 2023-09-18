@@ -23,7 +23,7 @@ const passwordHashing = async () => {
             />
           </v-col>
           <v-col cols="12" md="4">
-            <v-text-field readonly v-model="passwordHash" />
+            <v-text-field v-model="passwordHash" readonly />
           </v-col>
         </v-row>
       </template>
