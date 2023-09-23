@@ -1,15 +1,3 @@
-<script setup lang="ts">
-import { ref } from "vue";
-import { useBase91Hash } from "@/hooks/useBase91Hash";
-
-const passwordSeed = ref("");
-const passwordHash = ref("");
-const { hashFn } = useBase91Hash();
-const passwordHashing = async () => {
-  passwordHash.value = await hashFn(passwordSeed.value);
-};
-</script>
-
 <template>
   <v-container fluid>
     <v-card>
@@ -17,7 +5,7 @@ const passwordHashing = async () => {
         <v-row>
           <v-col cols="12" md="4">
             <v-text-field
-              v-model="passwordSeed"
+              v-model="passwordStore.testCode"
               label="Seed"
               @update:model-value="passwordHashing"
             />
@@ -29,8 +17,28 @@ const passwordHashing = async () => {
       </template>
 
       <template #actions>
-        <div>Actions</div>
+        <v-btn icon="mdi-content-save" @click="registerPasscode"></v-btn>
       </template>
     </v-card>
   </v-container>
 </template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import { useBase91Hash } from "@/hooks/useBase91Hash";
+import { usePasscodeStore } from "@/stores/passcode";
+
+const passwordStore = usePasscodeStore();
+const passwordHash = ref("");
+const { hashFn } = useBase91Hash();
+const passwordHashing = async () => {
+  passwordHash.value = await hashFn(passwordStore.testCode);
+};
+
+const registerPasscode = () => {
+  passwordStore.registerPasscode({
+    domain: "www.test.com",
+    emoji: "👼",
+  });
+};
+</script>

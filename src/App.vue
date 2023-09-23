@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import NavigationDrawer from "@/components/drawers/NavigationDrawer.vue";
-</script>
-
 <template>
   <v-app>
     <v-layout class="rounded rounded-md">
@@ -15,6 +11,10 @@ import NavigationDrawer from "@/components/drawers/NavigationDrawer.vue";
     </v-layout>
   </v-app>
 </template>
+
+<script setup lang="ts">
+import NavigationDrawer from "@/components/drawers/NavigationDrawer.vue";
+</script>
 
 <style scoped>
 .logo {

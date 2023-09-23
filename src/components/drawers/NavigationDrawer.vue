@@ -1,13 +1,17 @@
-<script setup lang="ts">
-import { ref } from "vue";
-
-const navs = ref([{ title: "app-nav-1" }, { title: "app-nav-2" }]);
-</script>
-
 <template>
   <v-navigation-drawer>
     <v-list>
-      <v-list-item v-for="nav in navs" :key="nav.title" :title="nav.title" />
+      <v-list-item
+        v-for="passcode in passcodeStore.passcodes"
+        :key="passcode.domain"
+        :title="passcode.domain"
+      />
     </v-list>
   </v-navigation-drawer>
 </template>
+
+<script setup lang="ts">
+import { usePasscodeStore } from "@/stores/passcode";
+
+const passcodeStore = usePasscodeStore();
+</script>
